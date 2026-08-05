@@ -5,9 +5,9 @@
     "position": "top",
 
     // Choose the order of the modules
-    "modules-left": ["custom/launcher", "hyprland/workspaces"],
-    "modules-center": ["clock"],
-    "modules-right": ["pulseaudio", "network", "battery", "tray"],
+    "modules-left": ["custom/apple", "custom/finder", "custom/file", "custom/edit", "custom/view", "custom/go", "custom/window", "custom/help", "hyprland/workspaces"],
+    "modules-center": [],
+    "modules-right": ["battery", "network", "pulseaudio", "tray", "clock"],
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
@@ -26,11 +26,22 @@
     //     }
     // }
  
-   "custom/launcher": {
-        "format": "",
+   "custom/apple": {
+        "format": "",
         "tooltip": false,
         "on-click": "wofi --show drun"
     },
+   "custom/finder": {
+        "format": "Finder",
+        "tooltip": false,
+        "on-click": "dolphin"
+    },
+   "custom/file": { "format": "File", "tooltip": false },
+   "custom/edit": { "format": "Edit", "tooltip": false },
+   "custom/view": { "format": "View", "tooltip": false },
+   "custom/go": { "format": "Go", "tooltip": false },
+   "custom/window": { "format": "Window", "tooltip": false },
+   "custom/help": { "format": "Help", "tooltip": false },
    "hyprland/workspaces": {
 	"format": "{icon}",
         "format-icons": {
@@ -39,17 +50,24 @@
         }
     },
    "clock": {
-	"format": "{:%Y-%m-%d %H:%M}"
+	"format": "{:%a %d %b  %I:%M %p}",
+        "tooltip-format": "<tt><big>{calendar}</big></tt>"
     },
    "battery": {
-        "format": "{capacity}% {icon}",
+        "format": "{icon}",
+        "format-charging": "",
+        "tooltip-format": "Battery: {capacity}%",
     },
     "network": {
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-disconnected": "Disconnected ⚠",
+        "format-wifi": "",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰤭",
+        "tooltip-format-wifi": "{essid}\n{signalStrength}%",
     },
    "pulseaudio": {
-        "format": "{volume}% {icon} {format_source}",
+        "format": "{icon}",
+        "format-muted": "󰖁",
+        "tooltip-format": "Volume: {volume}%",
     },
     "tray": {
         "icon-size": 14,

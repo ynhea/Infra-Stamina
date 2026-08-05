@@ -51,9 +51,12 @@ local menu        = "wofi --show drun"
 --
 hl.on("hyprland.start", function () 
   hl.exec_cmd("kitty")
+  hl.exec_cmd("fcitx5 -d")
+  hl.exec_cmd("sh -c 'sleep 1; fcitx5-remote -s hangul'")
   hl.exec_cmd("nm-applet")
   hl.exec_cmd("waybar")
-  hl.exec_cmd("nwg-dock-hyprland -r -a center -i 44 -p bottom -l overlay -mb 18")
+  hl.exec_cmd("hyprpaper")
+  hl.exec_cmd("nwg-dock-hyprland -r -a center -i 48 -p bottom -l overlay -mb 20 -s ~/.config/nwg-dock-hyprland/style.css")
 end)
 
 
@@ -72,6 +75,13 @@ hl.env("XDG_SESSION_TYPE", "wayland")
 hl.env("GBM_BACKEND", "drm")
 hl.env("XCURSOR_THEME", "macOS")
 hl.env("XCURSOR_SIZE", "24")
+
+-- Fcitx5: Hangul is selected automatically when the session starts.
+-- Requires: fcitx5, fcitx5-hangul, fcitx5-gtk, and fcitx5-qt.
+hl.env("XMODIFIERS", "@im=fcitx")
+hl.env("QT_IM_MODULE", "fcitx")
+hl.env("SDL_IM_MODULE", "fcitx")
+hl.env("GLFW_IM_MODULE", "ibus") -- Required by kitty for Fcitx5 input.
 
 -----------------------
 ----- PERMISSIONS -----

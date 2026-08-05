@@ -18,10 +18,37 @@ tooltip {
     border-radius: 8px;
 }
 
-#custom-launcher {
-    padding: 0 13px 0 15px;
+#custom-apple {
+    padding: 0 11px 0 15px;
     font-size: 15px;
     color: #ffffff;
+}
+
+#custom-finder {
+    padding: 0 8px 0 0;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+#custom-file,
+#custom-edit,
+#custom-view,
+#custom-go,
+#custom-window,
+#custom-help {
+    padding: 0 6px;
+    color: rgba(255, 255, 255, 0.86);
+}
+
+#custom-apple:hover,
+#custom-finder:hover,
+#custom-file:hover,
+#custom-edit:hover,
+#custom-view:hover,
+#custom-go:hover,
+#custom-window:hover,
+#custom-help:hover {
+    background-color: rgba(255, 255, 255, 0.14);
 }
 
 #workspaces {
@@ -44,7 +71,7 @@ tooltip {
 }
 
 #clock {
-    padding: 0 13px;
+    padding: 0 15px 0 8px;
     font-weight: 600;
     color: #ffffff;
 }
@@ -53,7 +80,7 @@ tooltip {
 #network,
 #battery,
 #tray {
-    padding: 0 8px;
+    padding: 0 6px;
     color: #f4f5f7;
 }
 
@@ -67,7 +94,7 @@ tooltip {
 }
 
 #tray {
-    padding-right: 13px;
+    padding: 0 6px;
 }
 
 #tray > .passive {
