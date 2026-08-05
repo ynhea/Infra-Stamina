@@ -5,9 +5,9 @@
     "position": "top",
 
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces"],
+    "modules-left": ["custom/launcher", "hyprland/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["pulseaudio", "network", "battery"],
+    "modules-right": ["pulseaudio", "network", "battery", "tray"],
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
@@ -26,8 +26,17 @@
     //     }
     // }
  
+   "custom/launcher": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "wofi --show drun"
+    },
    "hyprland/workspaces": {
-	"format": "{icon}"
+	"format": "{icon}",
+        "format-icons": {
+            "active": "●",
+            "default": "○"
+        }
     },
    "clock": {
 	"format": "{:%Y-%m-%d %H:%M}"
@@ -39,7 +48,11 @@
         "format-wifi": "{essid} ({signalStrength}%) ",
         "format-disconnected": "Disconnected ⚠",
     },
-    "pulseaudio": {
+   "pulseaudio": {
         "format": "{volume}% {icon} {format_source}",
+    },
+    "tray": {
+        "icon-size": 14,
+        "spacing": 8
     }
 }
