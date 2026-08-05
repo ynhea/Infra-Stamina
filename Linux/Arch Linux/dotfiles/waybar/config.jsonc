@@ -5,9 +5,9 @@
     "position": "top",
 
     // Choose the order of the modules
-    "modules-left": ["custom/apple", "custom/finder", "custom/file", "custom/edit", "custom/view", "custom/go", "custom/window", "custom/help", "hyprland/workspaces"],
+    "modules-left": ["custom/apple", "custom/finder", "hyprland/workspaces"],
     "modules-center": [],
-    "modules-right": ["battery", "network", "pulseaudio", "tray", "clock"],
+    "modules-right": ["battery", "network", "pulseaudio", "custom/control-center", "clock"],
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
@@ -36,12 +36,6 @@
         "tooltip": false,
         "on-click": "dolphin"
     },
-   "custom/file": { "format": "File", "tooltip": false },
-   "custom/edit": { "format": "Edit", "tooltip": false },
-   "custom/view": { "format": "View", "tooltip": false },
-   "custom/go": { "format": "Go", "tooltip": false },
-   "custom/window": { "format": "Window", "tooltip": false },
-   "custom/help": { "format": "Help", "tooltip": false },
    "hyprland/workspaces": {
 	"format": "{icon}",
         "format-icons": {
@@ -63,14 +57,16 @@
         "format-ethernet": "󰈀",
         "format-disconnected": "󰤭",
         "tooltip-format-wifi": "{essid}\n{signalStrength}%",
+        "on-click": "nm-connection-editor",
     },
-   "pulseaudio": {
+    "pulseaudio": {
         "format": "{icon}",
         "format-muted": "󰖁",
         "tooltip-format": "Volume: {volume}%",
     },
-    "tray": {
-        "icon-size": 14,
-        "spacing": 8
+    "custom/control-center": {
+        "format": "󰕮",
+        "tooltip": "Control Center",
+        "on-click": "sh ~/.config/hypr/scripts/control-center.sh"
     }
 }

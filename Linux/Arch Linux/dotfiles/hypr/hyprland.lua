@@ -56,7 +56,9 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd("nm-applet")
   hl.exec_cmd("waybar")
   hl.exec_cmd("hyprpaper")
-  hl.exec_cmd("nwg-dock-hyprland -r -a center -i 48 -p bottom -l overlay -mb 20 -s ~/.config/nwg-dock-hyprland/style.css")
+  hl.exec_cmd("sh -c 'sleep 1; hyprctl hyprpaper wallpaper \", $HOME/Downloads/image2.jpg, cover\"'")
+  hl.exec_cmd("nwg-dock-hyprland -a center -i 48 -p bottom -l overlay -mb 20")
+  hl.exec_cmd("sh -c 'command -v hyprswitch >/dev/null && hyprswitch init --show-title --size-factor 5.5 --workspaces-per-row 5 &'")
 end)
 
 
@@ -279,6 +281,7 @@ local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("pkill wofi || wofi --show drun"))
+hl.bind("F3", hl.dsp.exec_cmd("sh -c 'command -v hyprswitch >/dev/null && hyprswitch gui --mod-key super --key f3 --max-switch-offset 9 || notify-send \"Mission Control\" \"Install hyprswitch to enable the window overview.\"'"))
 hl.bind("SUPER + Return", hl.dsp.exec_cmd("kitty"))
 hl.bind("SUPER + C", hl.dsp.window.close())
 local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close()) 

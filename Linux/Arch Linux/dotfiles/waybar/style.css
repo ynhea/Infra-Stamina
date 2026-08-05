@@ -30,24 +30,8 @@ tooltip {
     font-weight: 700;
 }
 
-#custom-file,
-#custom-edit,
-#custom-view,
-#custom-go,
-#custom-window,
-#custom-help {
-    padding: 0 6px;
-    color: rgba(255, 255, 255, 0.86);
-}
-
 #custom-apple:hover,
-#custom-finder:hover,
-#custom-file:hover,
-#custom-edit:hover,
-#custom-view:hover,
-#custom-go:hover,
-#custom-window:hover,
-#custom-help:hover {
+#custom-finder:hover {
     background-color: rgba(255, 255, 255, 0.14);
 }
 
@@ -79,7 +63,7 @@ tooltip {
 #pulseaudio,
 #network,
 #battery,
-#tray {
+#custom-control-center {
     padding: 0 6px;
     color: #f4f5f7;
 }
@@ -89,14 +73,15 @@ tooltip {
     color: rgba(244, 245, 247, 0.50);
 }
 
+#network {
+    font-size: 14px;
+}
+
 #battery.critical:not(.charging) {
     color: #ff6961;
 }
 
-#tray {
-    padding: 0 6px;
-}
-
-#tray > .passive {
-    -gtk-icon-effect: dim;
+#custom-control-center {
+    padding: 0 10px 0 7px;
+    font-size: 14px;
 }
