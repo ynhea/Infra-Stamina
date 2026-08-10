@@ -235,7 +235,7 @@ hl.animation({
     leaf = "global",
     enabled = true,
     speed = 10,
-    bezier = "easy"
+    bezier = "default"
 })
 
 
@@ -455,7 +455,7 @@ hl.gesture({
 -- =========================================================
 -- 14. 마우스 장치별 설정
 hl.device({
-    name = "epic-mouse-v1",
+    name = "elan0e04:00-04f3:32e6-mouse",
     sensitivity = -0.5,
 })
 
@@ -467,7 +467,7 @@ local mainMod = "SUPER"
 -- SUPER + SPACE = Wofi 실행
 hl.bind(
     "SUPER + SPACE",
-    hl.dsp.exec_cmd("pkill wofi || wofi --show drun")
+    hl.dsp.exec_cmd(menu)
 )
 
 -- Mission Control / 창 전환 = hyprswitch 실행
