@@ -487,7 +487,9 @@ hl.bind(
 -- SUPER + C = 창 닫기
 hl.bind(
     mainMod .. " + C",
-    hl.dsp.window.close()
+    hl.dsp.exec_cmd(
+        "~/.config/hypr/scripts/control-center.sh"
+    )
 )
 
 -- SUPER + M = hyprland 종료
