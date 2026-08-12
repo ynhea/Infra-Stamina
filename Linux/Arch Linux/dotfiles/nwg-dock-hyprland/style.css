@@ -14,41 +14,25 @@
 /* ---------------------------------------------------------
    2. Dock 전체 영역
    --------------------------------------------------------- */
-
 window {
-    background-color: rgba(20, 20, 24, 0.72);
-
-    /* 유리 표면의 얇은 하이라이트 */
-    border: 1px solid rgba(255, 255, 255, 0.16);
-
-    /* macOS Dock 특유의 둥근 모서리 */
-    border-radius: 20px;
-
-    /* Dock 내부 여백 */
-    padding: 8px 10px;
-
-    /* Dock의 전체적인 깊이감 */
-    box-shadow:
-        0 8px 30px rgba(0, 0, 0, 0.35),
-        0 2px 8px rgba(0, 0, 0, 0.20);
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  padding: 8px 10px;
+  border: rgba(255, 255, 255, 0.75);
+  box-shadow: none;
 }
 
 
 /* ---------------------------------------------------------
    3. 아이콘 버튼
    --------------------------------------------------------- */
-
 button {
-    background: transparent;
-
-    /* 아이콘 뒤의 둥근 hover 영역 */
-    border-radius: 14px;
-
-    /* 아이콘 사이의 가로 간격 */
-    margin: 0 4px;
-
-    /* 아이콘 주변 여백 */
-    padding: 6px;
+  background: transparent;
+  border-radius: 14px;
+  margin: 0 4px;
+  padding: 6px;
+  border: none;
+  box-shadow: none;
 }
 
 
@@ -92,13 +76,4 @@ button:focus {
 
 button:disabled {
     opacity: 0.55;
-}
-
-
-/* ---------------------------------------------------------
-   8. Dock 내부의 기본 GTK 요소 제거
-   --------------------------------------------------------- */
-
-button > * {
-    background: transparent;
 }

@@ -1,4 +1,3 @@
-```lua
 -- =========================================================
 --
 -- 구성
@@ -47,7 +46,7 @@ hl.on("hyprland.start", function()
     -- 네트워크 아이콘
     hl.exec_cmd("nm-applet")
 
-    -- 상단 메뉴바
+    -- 상단 메뉴바S
     hl.exec_cmd("waybar")
         
     -- Hyprpaper
@@ -56,7 +55,7 @@ hl.on("hyprland.start", function()
 
     -- nwg-dock-hyprland 하단 Dock
     hl.exec_cmd(
-        "nwg-dock-hyprland -a center -i 48 -p bottom -l overlay -mb 20"
+        "nwg-dock-hyprland -a center -i 43 -p bottom -x -mb 20"
     )
 
     -- Hyprswitch 창 전환
@@ -93,69 +92,69 @@ hl.env("SDL_IM_MODULE", "fcitx")
 -- Kitty에서 Fcitx5 입력을 정상적으로 사용하기 위한 설정
 hl.env("GLFW_IM_MODULE", "ibus")
 
-
 -- =========================================================
 -- 5. 화면 / 창 디자인
 -- =========================================================
 
 hl.config({
 
-    general = {
-        -- 창과 창 사이의 간격
-        gaps_in = 6,
+general = {
+    -- 창과 창 사이의 간격
+    gaps_in = 6,
 
-        -- 화면 가장자리와 창 사이의 간격
-        gaps_out = 16,
+    -- 화면 가장자리와 창 사이의 간격
+    gaps_out = 16,
 
-        -- 창 테두리
-        border_size = 1,
+    -- 창 테두리
+    border_size = 1,
 
-        -- -------------------------------------------------
-        -- 활성 / 비활성 창 테두리
-        -- -------------------------------------------------
-        col = {
-            active_border = "rgba(ffffff33)",
-            inactive_border = "rgba(ffffff18)",
-        },
-
-        -- 테두리를 잡아서 창 크기를 조절하는 기능
-        resize_on_border = false,
-
-        -- 화면 찢어짐 방지
-        allow_tearing = false,
-
-        -- 기본 레이아웃
-        layout = "dwindle",
+    -- -------------------------------------------------
+    -- 활성 / 비활성 창 테두리
+    -- -------------------------------------------------
+    col = {
+        active_border = "rgba(ffffff33)",
+        inactive_border = "rgba(ffffff18)",
     },
 
+    -- 테두리를 잡아서 창 크기를 조절하는 기능
+    resize_on_border = false,
 
-    -- =====================================================
-    -- 창 디자인
-    -- =====================================================
+    -- 화면 찢어짐 방지
+    allow_tearing = false,
 
-    decoration = {
-        rounding = 14,
-        rounding_power = 2,
-        active_opacity = 0.98,
-        inactive_opacity = 0.94,
-        shadow = {
-            enabled = true,
-            range = 8,
-            render_power = 3,
-            color = 0x55000000,
-        },
-        blur = {
-            enabled = true,
-            size = 5,
-            passes = 2,
-            vibrancy = 0.12,
-        },
-    },
-    animations = {
+    -- 기본 레이아웃
+    layout = "dwindle",
+},
+
+
+-- =====================================================
+-- 창 디자인
+-- =====================================================
+
+decoration = {
+    rounding = 14,
+    rounding_power = 2,
+    active_opacity = 0.98,
+    inactive_opacity = 0.94,
+    shadow = {
         enabled = true,
+        range = 8,
+        render_power = 3,
+        color = 0x55000000,
     },
-})
+    blur = {
+        enabled = true,
+        size = 5,
+        passes = 2,
+        vibrancy = 0.12,
+    },
+},
+animations = {
+    enabled = true,
+},
 
+
+})
 
 -- =========================================================
 -- 6. Animation Curve (창과 관련된 그래픽 선언 -> 7번에서 활용)
@@ -371,7 +370,6 @@ hl.animation({
     bezier = "quick"
 })
 
-
 -- =========================================================
 -- 8. Dwindle Layout (분할)
 -- =========================================================
@@ -467,7 +465,7 @@ local mainMod = "SUPER"
 -- SUPER + SPACE = Wofi 실행
 hl.bind(
     "SUPER + SPACE",
-    hl.dsp.exec_cmd(menu)
+    hl.dsp.exec_cmd("sh -c 'pgrep -x wofi >/dev/null && pkill -x wofi ||" .. menu .. "'")
 )
 
 -- Mission Control / 창 전환 = hyprswitch 실행
@@ -478,13 +476,35 @@ hl.bind(
     )
 )
 
+-- SUPER + H = 현재 창 숨기기
+hl.bind(
+    mainMod .. " + H",
+    hl.dsp.exec_cmd(
+        "hyprctl dispatch movetoworkspace special"
+    )
+)
+
+-- SUPER + SHIFT + H = 숨긴 창 영역 열기
+hl.bind(
+    mainMod .. " + SHIFT + H",
+    hl.dsp.exec_cmd(
+        "hyprctl dispatch togglespecialworkspace"
+    )
+)
+
 -- SUPER + ENTER = Kitty 실행
 hl.bind(
     "SUPER + Return",
     hl.dsp.exec_cmd(terminal)
 )
 
--- SUPER + C = 창 닫기
+-- SUPER + Q = 현재 창 닫기
+hl.bind(
+    mainMod .. " + Q",
+    hl.dsp.window.close()
+)
+
+-- SUPER + C = 제어판 열기
 hl.bind(
     mainMod .. " + C",
     hl.dsp.exec_cmd(
@@ -526,11 +546,11 @@ hl.bind(
     hl.dsp.layout("togglesplit")
 )
 
--- SUPER + CTRL + S = 영역 선택 스크린샷
+-- SUPER + CTRL + S = 영역 선택 후 클립보드에 복사
 hl.bind(
     mainMod .. " + CTRL + S",
     hl.dsp.exec_cmd(
-        "grim -g \"$(slurp)\" ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png"
+        "grim -g \"$(slurp)\" - | wl-copy"
     )
 )
 
@@ -816,9 +836,3 @@ hl.window_rule({
 
     float = true,
 })
-
-
--- =========================================================
--- 설정 끝
--- =========================================================
-```
