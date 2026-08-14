@@ -5,7 +5,7 @@
     "position": "top",
 
     // Choose the order of the modules
-    "modules-left": ["custom/apple", "custom/finder", "hyprland/workspaces"],
+    "modules-left": ["custom/apple", "custom/finder"],
     "modules-center": [],
     "modules-right": ["battery", "network", "pulseaudio", "custom/control-center", "clock"],
     // Modules configuration
@@ -27,7 +27,7 @@
     // }
  
    "custom/apple": {
-        "format": "",
+        "format": "",
         "tooltip": false,
         "on-click": "wofi --show drun"
     },
@@ -35,13 +35,6 @@
         "format": "Finder",
         "tooltip": false,
         "on-click": "dolphin"
-    },
-   "hyprland/workspaces": {
-	"format": "{icon}",
-        "format-icons": {
-            "active": "●",
-            "default": "○"
-        }
     },
    "clock": {
 	"format": "{:%a %d %b  %I:%M %p}",
@@ -70,3 +63,4 @@
         "on-click": "sh ~/.config/hypr/scripts/control-center.sh"
     }
 }
+

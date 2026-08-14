@@ -479,17 +479,16 @@ hl.bind(
 -- SUPER + H = 현재 창 숨기기
 hl.bind(
     mainMod .. " + H",
-    hl.dsp.exec_cmd(
-        "hyprctl dispatch movetoworkspace special"
-    )
+    hl.dsp.window.move({
+        workspace = "special:minimized",
+        follow = false,
+    })
 )
 
--- SUPER + SHIFT + H = 숨긴 창 영역 열기
+-- SUPER + SHIFT + H = 숨긴 창 영역 열기 / 닫기
 hl.bind(
     mainMod .. " + SHIFT + H",
-    hl.dsp.exec_cmd(
-        "hyprctl dispatch togglespecialworkspace"
-    )
+    hl.dsp.workspace.toggle_special("minimized")
 )
 
 -- SUPER + ENTER = Kitty 실행
