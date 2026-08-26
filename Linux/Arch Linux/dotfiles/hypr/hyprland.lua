@@ -468,6 +468,15 @@ hl.bind(
     hl.dsp.exec_cmd("sh -c 'pgrep -x wofi >/dev/null && pkill -x wofi ||" .. menu .. "'")
 )
 
+-- F10 = 음소거
+hl.bind( "F10", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle") )
+
+-- F11 = 소리 2% 줄이기
+hl.bind( "F11", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-") )
+
+-- F12 = 소리 2% 키우기
+hl.bind( "F12", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 2%+") )
+
 -- Mission Control / 창 전환 = hyprswitch 실행
 hl.bind(
     "F3",
