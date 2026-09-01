@@ -43,7 +43,18 @@
    "battery": {
         "format": "{icon}",
         "format-charging": "",
-        "tooltip-format": "Battery: {capacity}%",
+        "format-plugged": "",
+        "format-full": "",
+
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+
+        "tooltip-format": "Battery: {capacity}%"
     },
     "network": {
         "format-wifi": "",
