@@ -434,9 +434,10 @@ hl.config({
         -- 마우스 감도
         sensitivity = 0,
 
-        -- 터치패드
+        -- 터치패드 (숫자가 작을수록 느려짐)
         touchpad = {
             natural_scroll = true,
+            scroll_factor = 0.4,
         },
     },
 })
