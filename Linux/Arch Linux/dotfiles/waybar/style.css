@@ -66,3 +66,7 @@ tooltip {
     padding: 0 10px 0 7px;
     font-size: 14px;
 }
+
+#battery {
+    font-size: 18px;
+}
