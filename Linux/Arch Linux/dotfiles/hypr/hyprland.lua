@@ -477,6 +477,22 @@ hl.bind( "F11", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-") )
 -- F12 = 소리 2% 키우기
 hl.bind( "F12", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 2%+") )
 
+-- F2 = 화면 밝기 5% 감소
+hl.bind(
+    "F2",
+    hl.dsp.exec_cmd(
+        "brightnessctl set 5%-"
+    )
+)
+
+-- F3 = 화면 밝기 5% 증가
+hl.bind(
+    "F3",
+    hl.dsp.exec_cmd(
+        "brightnessctl set 5%+"
+    )
+)
+
 -- Mission Control / 창 전환 = hyprswitch 실행
 hl.bind(
     "F3",
