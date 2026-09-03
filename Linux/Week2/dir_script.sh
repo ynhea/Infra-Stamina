@@ -8,7 +8,8 @@ link=backup_$(date "+%Y%m%d").tar.gz
 find $backup_dir
 
 # 2. 압축
-tar -czvf $link $backup_dir 
+mkdir -p BackUp
+tar -czvf $link -C ~/Workspace practice 
 cp $link  BackUp/$link
 
 # 3. 권한 제한
