@@ -1,4 +1,4 @@
-# 📘 3주차 Day 1 --- 사용자 관리 (User & Group Management)
+# 📘 Day 1 --- 사용자 관리
 
 ## 💀​ 1. 목표
 
