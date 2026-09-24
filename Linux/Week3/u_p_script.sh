@@ -1,13 +1,15 @@
 #!/bin/bash
 
-useradd -m -s /bin/bash testuser
-groupadd testgroup
+sudo useradd -m -s /bin/bash testuser
+sudo groupadd testgroup
 
 grep "testuser" /etc/passwd
 grep "testgroup" /etc/group
 
-usermod -aG testgroup testuser
+sudo usermod -aG testgroup testuser
 groups testuser
 
 ps aux --sort=-%cpu | head -6
+
+sleep 60 &
 ps aux | grep sleep | grep -v grep
